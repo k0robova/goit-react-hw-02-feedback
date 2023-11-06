@@ -1,4 +1,7 @@
 .feedback_container {
-}
-.feedback_title {
+  border: 1px solid red;
+  padding: 20px;
+  width: 400px;
+  margin: 30px;
+  border-radius: 10px;
 }

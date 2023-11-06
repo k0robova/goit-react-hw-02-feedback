@@ -2,10 +2,10 @@ import css from './Section.module.css';
 
 const Section = ({ title, children }) => {
   return (
-    <section>
-      <h2>{title}</h2>
+    <div>
+      <h2 className={css.section_title}>{title}</h2>
       {children}
-    </section>
+    </div>
   );
 };
 

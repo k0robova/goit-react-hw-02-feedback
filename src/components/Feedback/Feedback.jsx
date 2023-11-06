@@ -3,6 +3,7 @@ import css from './Feedback.module.css';
 import Statistics from 'components/Statistics/Statistics';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Section from 'components/Section/Section';
+import { Notification } from 'components/Notification/Notification';
 
 class FeedbackFromClients extends React.Component {
   state = {
@@ -31,24 +32,32 @@ class FeedbackFromClients extends React.Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const isRenderNotification = good === 0 && neutral === 0 && bad === 0;
+    const isRenderStatistics = good > 0 || neutral > 0 || bad > 0;
     return (
       <div className={css.feedback_container}>
-        <Section title="Please leave your feedback">
+        <Section title="Please leave your feedback:">
           <FeedbackOptions
             options={Object.keys(this.state)}
             onLeaveFeedback={this.onHandleRating}
           />
         </Section>
 
-        <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
-        </Section>
+        {isRenderNotification && (
+          <Notification message="There is no feedback" />
+        )}
+
+        {isRenderStatistics && (
+          <Section title="Statistics">
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          </Section>
+        )}
       </div>
     );
   }

@@ -1,10 +1,7 @@
-.statistics {
-}
-.statistics_title {
-}
 .statistics_list {
+  list-style: none;
 }
-.statistics_item {
-}
+
 .statistics_text {
+  font-size: 15px;
 }

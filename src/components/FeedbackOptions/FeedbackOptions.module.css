@@ -1,3 +1,15 @@
-.feedback_buttons > button {
-  margin-right: 20px;
+.feedback_buttons {
+  /* display: block; */
+  margin-right: 25px;
+  border: 1px solid rgb(109, 109, 101);
+  background-color: rgb(244, 236, 228);
+  border-radius: 20%;
+  cursor: pointer;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+.feedback_buttons:hover {
+  background-color: rgb(148, 180, 148);
 }
